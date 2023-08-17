@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css_files/landing_page.css">
+  <link rel="stylesheet" href="/css_files/get_invloved_page.css">
   <link rel="stylesheet" href="/css_files/global.css">
 </head>
 
@@ -16,7 +16,7 @@
   <div id="app">
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="/landing_page.html" target="_self"></a>
+      <a class="navbar-brand" href="/index.html" target="_self"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,24 +33,46 @@
         </ul>
       </div>
     </nav>
-    <!-- Header Image with Welcome Message -->
+
+    <!-- Header Image with three black transparent panels -->
     <div class="header-image">
-      <div class="center-panel">
-        <h2>Welcome to GraceWell Methodist Church</h2>
-        <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum odit dolores eveniet
-          molestiae, asperiores tempore, deserunt id sapiente repellendus sit tempora animi neque officiis delectus
-          doloribus assumenda blanditiis, debitis nesciunt.</p>
-        <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
-      </div>
+        <div class="row">
+          <!--Join Ministry Panel-->
+          <div class="col-md-6">
+            <div class="center-panel">
+              <h3>Join a Ministry</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <a class="btn" href="/join_minstry_page.html">Enter</a>
+            </div>
+          </div>
+          <!--Volunteer panel-->
+          <div class="col-md-6">
+            <div class="center-panel">
+              <h3>Volunteer</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <a class="btn" href="/volunteer_page.html">Enter</a>
+            </div>
+          </div>
+          <!--Community Chat panel-->
+          <div class="col-md-6">
+            <div class="center-panel">
+              <h3>Community Chat</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <a class="btn" href="/chat_landing_page.html">Enter</a>
+            </div>
+          </div>
+        </div>
     </div>
+
     <!-- Page content -->
     <section class="content-section">
       <div class="container">
         <div class="row">
           <!-- Left side content -->
           <div class="col-md-6">
-            <h2 class="content-header">Join Our Community</h2>
-            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. Doloribus quas est voluptate tenetur! Deserunt, pariatur? Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores.</p>
+            <h2 class="content-header">Get Involved</h2>
+            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. Doloribus quas est voluptate tenetur! Deserunt, pariatur? Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae.</p>
+            <br>
           </div>
           <!-- Right side image -->
           <div class="col-md-6 d-flex justify-content-end">
@@ -59,6 +81,7 @@
         </div>
       </div>
     </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -84,6 +107,7 @@
       </div>
     </footer>
   </div>
+  
   <!-- Bootstrap JS (Popper.js and jQuery are required for Bootstrap) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
