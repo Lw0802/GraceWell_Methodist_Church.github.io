@@ -158,16 +158,14 @@ Make changes to this file when necessary
     text-align: left;
   }
 
-
   /* Styling for the footer */
   .footer {
     background-color: rgb(206, 206, 206);
     padding: 20px 0;
-    text-align: left;
+    text-align: center;
     color: black;
     position:-webkit-sticky;
     bottom: 0px;
-    left: 0px;
     width: 100%;
   }
   
