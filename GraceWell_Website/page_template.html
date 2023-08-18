@@ -1,3 +1,8 @@
+<!--
+    This is a template page for most of the web pages, but not all of them (We'll be following the design in figma)
+    Erase all the comments and lines of code that you don't need
+    Make sure to use ChatGPT when coding and make sure to mention to it that you're using Vue.js and boostrap 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +12,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css_files/join_minstry.css">
+  <link rel="stylesheet" href="/css_files/page_template.css">
   <link rel="stylesheet" href="/css_files/global.css">
 </head>
 <body>
@@ -15,67 +20,39 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="/index.html" target="_self"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/home_page.html" target="_self">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about_page.html" target="_self">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact_page.html" target="_self">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/donations_page.html" target="_self">Donations</a></li>
+          <li class="nav-item"><a class="nav-link" href="/appointments_page.html" target="_self">Appointments</a></li>
+          <li class="nav-item"><a class="nav-link" href="/get_involved_page.html" target="_self">Get Involved</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>
+        </ul>
       </div>
     </nav>
 
     <!-- Header Image with Welcome Message -->
+    <!-- Get free copyright images this site:https://www.pexels.com/search/free/ (Or any other site where you can download images that are free of copyright)
+    We'll be using free copyright images in the mean time, then change them with images provide by the church 
+    Make sure to to crop and resize the image appropriately so that the website does'n take long to load 
+    The images have to fit the them of the current page you're working on 
+    -->
     <div class="header-image">
-      <a class="back_btn" href="/get_involved_page.html">Back</a>
       <div class="center-panel">
-        <h1>1 Peter 4 : 10</h1>
-        <p>Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms .</p>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem ea asperiores corporis culpa officia! Placeat, praesentium autem quam numquam dolore optio reprehenderit exercitationem dicta mollitia, explicabo modi culpa officia quas!</p>
+        <!-- Content within the central panel (most likely a bible scripture, according to the prototype) -->
       </div>
     </div>
 
     <!-- Page content -->
-    <section class="content-section">
-      <div class="container">
-        <h1 style="font-weight: 650">Minstries to join</h1>
-        <br>
-        <div class="row">
-          <!-- Left side content -->
-          <div class="col-md-6">
-            <h2 class="content-header">Ushers</h2>
-            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. </p>
-            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
-          </div>
-          <!-- Right side image -->
-          <div class="col-md-6 d-flex justify-content-end">
-            <img src="/website_images/Ushers(edited).jpg" alt="Grace Well Church" />
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="container">
-        <div class="row">
-          <!-- Right side image -->
-          <div class="col-md-6">
-            <img src="/website_images/pexels-abel-tan-jun-yang-volunteer-2 (edited).jpg" alt="Grace Well Church" />
-          </div>
-          <!-- Left side content -->
-          <div class="col-md-6 justify-content-end">
-            <h2 class="content-header">Church Band</h2>
-            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. </p>
-            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="container">
-        <div class="row">
-          <!-- Left side content -->
-          <div class="col-md-6">
-            <h2 class="content-header">Media Team</h2>
-            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. </p>
-            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
-          </div>
-          <!-- Right side image -->
-          <div class="col-md-6 d-flex justify-content-end">
-            <img src="/website_images/pexels-caleb-oquendo-volunteer-3(edited).jpg" alt="Grace Well Church" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Page content different for each page, according to the prototype -->
 
     <!-- Footer --><!-- Use this site (www.flaticon.com)for png icon and make sure to add the attributions/references. DON'T USE AN IMAGE ICON IF YOU'RE NOT SURE THAT IT ISN'T COPYRIGHTED-->
     <footer class="footer">
