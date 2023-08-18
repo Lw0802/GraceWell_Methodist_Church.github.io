@@ -40,7 +40,7 @@ new Vue({
   el: '#app',
   data: {
     images: [
-      { src: 'image1.jpg', title: 'Image 1 Title' },
+      { src: '/website_images/pexel', title: 'Image 1 Title' },
       { src: 'image2.jpg', title: 'Image 2 Title' },
       { src: 'image3.jpg', title: 'Image 3 Title' },
       { src: 'image4.jpg', title: 'Image 4 Title' },
