@@ -57,6 +57,20 @@
           <br>
           <h2 class="content-header">Recent Sermons</h2>
         </div>
+        <div id="app" class="container">
+          <div class="row">
+            <div class="col">
+              <div class="image-carousel">
+                <div class="carousel-inner" :style="{ transform: `translateX(${translateValue}px)` }">
+                  <div class="carousel-item" v-for="(image, index) in images" :key="index">
+                    <img :src="image.src" class="d-block w-100" alt="Image">
+                    <p class="carousel-title">{{ image.title }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     <!-- Footer --><!-- Use this site (www.flaticon.com)for png icon and make sure to add the attributions/references. DON'T USE AN IMAGE ICON IF YOU'RE NOT SURE THAT IT ISN'T COPYRIGHTED-->
