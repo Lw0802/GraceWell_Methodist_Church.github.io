@@ -1,8 +1,3 @@
-<!--
-    This is a template page for most of the web pages, but not all of them (We'll be following the design in figma)
-    Erase all the comments and lines of code that you don't need
-    Make sure to use ChatGPT when coding and make sure to mention to it that you're using Vue.js and boostrap 
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css_files/page_template.css">
+  <link rel="stylesheet" href="/css_files/donations_page.css">
   <link rel="stylesheet" href="/css_files/global.css">
 </head>
 
@@ -42,65 +37,46 @@
     </nav>
 
     <!-- Header Image with Welcome Message -->
-    <!-- Get free copyright images this site:https://www.pexels.com/search/free/ (Or any other site where you can download images that are free of copyright)
-    We'll be using free copyright images in the mean time, then change them with images provide by the church 
-    Make sure to to crop and resize the image appropriately so that the website does'n take long to load 
-    The images have to fit the them of the current page you're working on 
-    -->
     <div class="header-image">
       <div class="center-panel">
         <h1>2 Corinthians 9 : 7</h1>
         <p>Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for
           God loves a cheerful giver.</p>
-        <!-- Content within the central panel (most likely a bible scripture, according to the prototype) -->
       </div>
     </div>
 
     <!-- Page content -->
     <section class="content-section">
       <div class="container">
+        <h1 class="content-header">Donations and Offering</h1>
         <div class="row">
           <!-- Left side content -->
-          <div class="col-md-6">
-            <h2 class="content-header">Account Details</h2>
-            <div class="contact-left">
-              <div class="contact-info">
-                <p class="contact-label">Bank Name: </p>
-                <p style="font-weight: normal;">NEDBANK</p>
-              </div>
-              <div class="contact-info">
-                <p class="contact-label">Branch Name: </P>
-                <p style="font-weight: normal; ">CRESTA BRNCH</p>
-              </div>
-              <div class="contact-info">
-                <p class="contact-label">Branch Code: </p>
-                <p style="font-weight: normal; ">CURRENT ACCOUNT</p>
-              </div>
-              <div class="contact-info">
-                <p class="contact-label">Account Holder: </p>
-                <p style="font-weight: normal; ">MGRACEWELL METHODIST CHURCH</p>
-              </div>
-              <div class="contact-info">
-                <p class="contact-label">Account Number:
-                <p style="font-weight: normal; ">1176555073</p>
-              </div>
-            </div>
+          <div class="col-md-5">
+            <h3 class="content-header">Account Details</h3>
+            <p class="content-paragraph-2">Bank Name:</p>
+            <p class="content-paragraph">NEDBANK</p>
+            <p class="content-paragraph-2">Branch Name:</P>
+            <p class="content-paragraph">CRESTA BRNCH</P>
+            <p class="content-paragraph-2">Branch Code:</p>
+            <p class="content-paragraph">CURRENT ACCOUNT</p>
+            <p class="content-paragraph-2">Account Holder:</p>
+            <p class="content-paragraph">MGRACEWELL METHODIST CHURCH</p>
+            <p class="content-paragraph-2">Account Number:</p>
+            <p class="content-paragraph">1176555073</p>
+          </div>
+          <div class="col-md-1">
+            <img src="" alt="">
           </div>
           <!-- Right side image -->
-          <div class="col-md-6 justify-content-end">
-            <h2 class="content-header">Give a Donation</h2>
-            <p style="font-weight: normal; font-size: 14px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Nobis sit nemo ullam
-              eligendi iure
-              voluptatibus cupiditate ipsam, dolores ab, commodi optio, nulla alias nisi at quo
-              possimus
-              fuga eos sed?</p>
+          <div class="col-md-6">
+            <h3 class="content-header">Give a Donation</h3>
+            <p class="content-paragraph">To complete your donation, please make a payment using the following banking details displayed on the left. Once you have made the payment, kindly send us a confirmation email at [Email Address] with the transaction details. Thank you once again for your kind donation. Your support does make a difference!</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer --><!-- Use this site (www.flaticon.com)for png icon and make sure to add the attributions/references. DON'T USE AN IMAGE ICON IF YOU'RE NOT SURE THAT IT ISN'T COPYRIGHTED-->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
