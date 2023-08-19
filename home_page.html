@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="/css_files/home_page.css">
   <link rel="stylesheet" href="/css_files/global.css">
 </head>
+
 <body>
   <div id="app">
     <!-- Navigation bar -->
@@ -33,43 +35,120 @@
     </nav>
 
     <!-- Header -->
-    
+
     <div class="header-image">
       <div class="center-panel">
         <h1>2 Corinthians 4:16-18</h1>
-        <p>So we do not lose heart. Though our outer self is wasting away, our inner self is being renewed day by day. For this light momentary affliction is preparing for us an eternal weight of glory beyond all comparison, as we look not to the things that are seen but to the things that are unseen. For the things that are seen are transient, but the things that are unseen are eternal.</p>
+        <p>So we do not lose heart. Though our outer self is wasting away, our inner self is being renewed day by day.
+          For this light momentary affliction is preparing for us an eternal weight of glory beyond all comparison, as
+          we look not to the things that are seen but to the things that are unseen. For the things that are seen are
+          transient, but the things that are unseen are eternal.</p>
         <!-- Content within the central panel (most likely a bible scripture, according to the prototype) -->
       </div>
     </div>
     <!-- Page content -->
     <section class="content-section">
-       <div class="container">
-         <h1 class="content-header">Welcome to Our Community</h1>
-         <div class="row">
-            <!-- Left side content -->
-            <div class="col-md-6">
-              <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. Doloribus quas est voluptate tenetur! Deserunt, pariatur? Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores.</p>
-            </div>
-            <!-- Right side image -->
-            <div class="col-md-6 d-flex justify-content-end">
-              <img src="/website_images/Grace_Well_Church.jpg" alt="Grace Well Church" />
-            </div>
+      <div class="container">
+        <h1 class="content-header">Welcome to Our Community</h1>
+        <div class="row">
+          <!-- Left side content -->
+          <div class="col-md-6">
+            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet
+              consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias
+              rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut
+              illum fugiat eum odit quis eius. Doloribus quas est voluptate tenetur! Deserunt, pariatur? Quisquam aut
+              dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum
+              ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi
+              provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores. Quisquam aut
+              dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum
+              ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi
+              provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores.</p>
           </div>
-          <br>
-          <!-- Inside the existing "container" div -->
-          <h2 class="content-header">Recent Sermons</h2>
-          <div id="recent-sermons" class="row">
-            <div class="col-md-12">
-              <div class="scrolling-images">
-                <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
-                  <img :src="sermon.imageSrc" :alt="sermon.title" class="sermon-image">
-                  <p class="sermon-title">{{ sermon.title }}</p>
-                </div>
+          <!-- Right side image -->
+          <div class="col-md-6 d-flex justify-content-end">
+            <img src="/website_images/Grace_Well_Church.jpg" alt="Grace Well Church" />
+          </div>
+        </div>
+        <br>
+        <!-- Inside the existing "container" div -->
+        <h2 class="content-header">Recent Sermons</h2>
+        <div id="recent-sermons" class="row">
+          <div class="col-md-12">
+            <div class="scrolling-images">
+              <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
+                <img :src="sermon.imageSrc" :alt="sermon.title" class="sermon-image">
+                <p class="sermon-title">{{ sermon.title }}</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <div id="recent-events" class="row">
+          <h2 class="content-header">Recent Events</h2>
+          <div class="col-md-12">
+            <div class="scrolling-images">
+              <div class="scrolling-images-inner" v-for="event in events" :key="event.id">
+                <img :src="event.imageSrc" :alt="event.title" class="event-image">
+                <p class="event-title">{{ event.title }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <br>
+        <div class="row">
+          <!-- Left side content -->
+          <div class="col-md-6">
+            <h2 class="content-header">Volunteer Event 1#</h2>
+            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet
+              consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias
+              rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut
+              illum fugiat eum odit quis eius. </p>
+            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
+          </div>
+          <!-- Right side image -->
+          <div class="col-md-6 d-flex justify-content-end">
+            <img src="/website_images/pexels-julia-m-cameron-volunteer-1(edited).jpg" alt="Grace Well Church" />
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <!-- Right side image -->
+          <div class="col-md-6">
+            <img src="/website_images/pexels-abel-tan-jun-yang-volunteer-2 (edited).jpg" alt="Grace Well Church" />
+          </div>
+          <!-- Left side content -->
+          <div class="col-md-6 justify-content-end">
+            <h2 class="content-header">Volunteer Event 2#</h2>
+            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet
+              consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias
+              rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut
+              illum fugiat eum odit quis eius. </p>
+            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <!-- Left side content -->
+          <div class="col-md-6">
+            <h2 class="content-header">Volunteer Event 3#</h2>
+            <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet
+              consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias
+              rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut
+              illum fugiat eum odit quis eius. </p>
+            <a class="btn" href="#">Sign Up</a><!-- Call-to-Action Button -->
+          </div>
+          <!-- Right side image -->
+          <div class="col-md-6 d-flex justify-content-end">
+            <img src="/website_images/Grace_Well_Church.jpg" alt="Grace Well Church" />
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">

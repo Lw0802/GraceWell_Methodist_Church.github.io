@@ -137,8 +137,8 @@ Make changes to this file when necessary
 
   .content-section {
     background-color: #f9f9f9;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1s, transform 1s;
@@ -192,6 +192,11 @@ Make changes to this file when necessary
     margin: 4px;
   }
   
+  .row{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   /* Mobile responsiveness */
   @media (max-width: 1000px) {
     .center-panel {
