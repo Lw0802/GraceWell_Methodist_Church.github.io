@@ -33,6 +33,7 @@
     </nav>
 
     <!-- Header -->
+    
     <div class="header-image">
       <div class="center-panel">
         <h1>2 Corinthians 4:16-18</h1>
@@ -42,9 +43,9 @@
     </div>
     <!-- Page content -->
     <section class="content-section">
-        <div class="container">
-          <h1 class="content-header">Welcome to Our Community</h1>
-          <div class="row">
+       <div class="container">
+         <h1 class="content-header">Welcome to Our Community</h1>
+         <div class="row">
             <!-- Left side content -->
             <div class="col-md-6">
               <p class="content-paragraph" style="font-weight: normal; font-size: 14px;">Lorem ipsum dolor sit amet consecte adipisicing elit. Facere nulla earum, temporibus, odio nostrum, expedita aliquid error molestias rerum labore dolorem hic iusto ullam quam excepturi quidem commodi? Est magni, eveniet incidu totam aut illum fugiat eum odit quis eius. Doloribus quas est voluptate tenetur! Deserunt, pariatur? Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores, iusto adipisci voluptatum vitae. Quisquam aut dolore nam enim est pariatur animi provident, odio alias doloribus culpa praesentium necessitatibus cum ducimus autem maiores.</p>
@@ -55,17 +56,14 @@
             </div>
           </div>
           <br>
+          <!-- Inside the existing "container" div -->
           <h2 class="content-header">Recent Sermons</h2>
-        </div>
-        <div id="app" class="container">
-          <div class="row">
-            <div class="col">
-              <div class="image-carousel">
-                <div class="carousel-inner" :style="{ transform: `translateX(${translateValue}px)` }">
-                  <div class="carousel-item" v-for="(image, index) in images" :key="index">
-                    <img :src="image.src" class="d-block w-100" alt="Image">
-                    <p class="carousel-title">{{ image.title }}</p>
-                  </div>
+          <div id="recent-sermons" class="row">
+            <div class="col-md-12">
+              <div class="scrolling-images">
+                <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
+                  <img :src="sermon.imageSrc" :alt="sermon.title" class="sermon-image">
+                  <p class="sermon-title">{{ sermon.title }}</p>
                 </div>
               </div>
             </div>
@@ -73,7 +71,7 @@
         </div>
       </section>
 
-    <!-- Footer --><!-- Use this site (www.flaticon.com)for png icon and make sure to add the attributions/references. DON'T USE AN IMAGE ICON IF YOU'RE NOT SURE THAT IT ISN'T COPYRIGHTED-->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">

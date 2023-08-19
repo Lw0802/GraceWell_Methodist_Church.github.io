@@ -27,37 +27,64 @@ document.addEventListener("DOMContentLoaded", function() {
     const headerImage = document.querySelector(".header-image");
     const contentSection = document.querySelector(".content-section");
   
-    setTimeout(function() {
-      headerImage.style.opacity = "1";
-      headerImage.style.transform = "translateY(0)";
+  setTimeout(function() {
+    headerImage.style.opacity = "1";
+    headerImage.style.transform = "translateY(0)";
   
-      contentSection.style.opacity = "1";
-      contentSection.style.transform = "translateY(0)";
-    }, 500);
+    contentSection.style.opacity = "1";
+    contentSection.style.transform = "translateY(0)";
+  }, 500);
 });
 
-new Vue({
-  el: '#app',
-  data: {
-    images: [
-      { src: '/website_images/pexel', title: 'Image 1 Title' },
-      { src: 'image2.jpg', title: 'Image 2 Title' },
-      { src: 'image3.jpg', title: 'Image 3 Title' },
-      { src: 'image4.jpg', title: 'Image 4 Title' },
-      { src: 'image5.jpg', title: 'Image 5 Title' },
-      { src: 'image6.jpg', title: 'Image 6 Title' },
-      { src: 'image7.jpg', title: 'Image 7 Title' }
-    ],
-    translateValue: 0
-  },
-  methods: {
-    scrollCarousel(direction) {
-      const step = 300; // Adjust this value for smoother/faster scrolling
-      if (direction === 'left') {
-        this.translateValue += step;
-      } else if (direction === 'right') {
-        this.translateValue -= step;
-      }
+document.addEventListener("DOMContentLoaded", function() {
+  // ... (your existing code)
+
+  // Vue.js code for recent sermons
+  new Vue({
+    el: "#recent-sermons",
+    data: {
+      sermons: [
+        {
+          id: 1,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 1"
+        },
+        {
+          id: 2,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 2"
+        },
+        {
+          id: 3,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+        {
+          id: 4,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+        {
+          id: 5,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+        {
+          id: 6,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+        {
+          id: 7,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+        {
+          id: 8,
+          imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+          title: "Sermon Title 3"
+        },
+      ]
     }
-  }
+  });
 });
