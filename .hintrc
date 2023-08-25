@@ -9,5 +9,13 @@
         "link-name": "off"
       }
     ]
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 116",
+    "not chrome <= 116",
+    "not edge <= 116",
+    "not samsung <= 21"
+  ]
 }
