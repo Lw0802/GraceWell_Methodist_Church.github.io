@@ -73,8 +73,68 @@
         </div>
       </div>
       <br>
+      <hr>
       <div class="container">
-        <a class="btn" href="#">Join a Ministry</a><!-- Call-to-Action Button -->
+        <div class="row">
+          <!-- Left side content -->
+          <div class="col-md-6">
+            <h3 class="content-header">Instructions</h3>
+            <p class="content-paragraph">"Welcome to our 'Appointments' page! We're thrilled that you've chosen to
+              connect with us on a personal level. Whether you're seeking spiritual guidance, have questions about our
+              services, or simply want to have a one-on-one conversation with us, this is the place to make it happen.
+              Your spiritual well-being and needs are important to us, and we're here to assist you in any way we can.
+              We'll ensure to give you our full attention during your appointment. Thank you for entrusting us with your
+              time and concerns; we're eager to connect and support you on your journey."</p>
+            <p class="content-paragraph">
+              To book an appointment, please follow the steps below:</p>
+            <ol>
+              <li>Select the service you require from the list provided.</li>
+              <li>Choose a preferred date and time slot that suits your schedule.</li>
+              <li>Fill in your contact details, including your name, phone number, and email address.</li>
+              <li>Provide any specific information or additional notes that might be relevant to your appointment.</li>
+            </ol>
+          </div>
+          <!-- Right side content -->
+          <div class="col-md-6">
+            <h3 class="content-header">Make an Appointment</h3>
+            <!-- Appointment Form -->
+            <form id="appointmentForm">
+              <!-- Name and Surname -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                </div>
+              </div>
+              <!-- Cellphone and Telephone -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="tel" class="form-control" id="cellphone" placeholder="Cellphone" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                </div>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+              </div>
+              <!-- Subject Title -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="subject" placeholder="Subject Title" required>
+              </div>
+              <!-- Description -->
+              <div class="form-group">
+                <textarea class="form-control" id="description" rows="4" placeholder="Description"></textarea>
+              </div>
+              <br>
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
