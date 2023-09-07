@@ -10,7 +10,8 @@
       {
         "image-alt": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   },
   "browserslist": [
     "defaults",
