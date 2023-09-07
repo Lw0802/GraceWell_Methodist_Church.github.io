@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="././css_files/page_template.css">
+  <link rel="stylesheet" href="././css_files/about_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
 </head>
 
@@ -36,6 +36,15 @@
       </div>
     </nav>
 
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="././about_page.html" target="_self">About</a>
+      <a href="././history_page.html" target="_self">History</a>
+      <a href="././mission_page.html" target="_self">Our Mission</a>
+      <a href="././doctrine_belief_page.html" target="_self">Beliefs</a>
+      <a href="././staff_page.html" target="_self">Our Staff</a>
+    </div>
+
     <!-- Header Image -->
     <div class="header-image">
       <div class="center-panel">
@@ -44,6 +53,8 @@
         <!-- Content within the central panel (most likely a bible scripture, according to the prototype) -->
       </div>
     </div>
+    
+    <span onclick="openNav()">&#9776; Menu</span>
 
     <!-- Page content -->
     <strong>
@@ -125,6 +136,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
+  <script src="././js_files/about_page.js"></script>
 </body>
 
 </html>
