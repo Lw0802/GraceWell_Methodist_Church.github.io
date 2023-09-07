@@ -6,49 +6,39 @@ document.addEventListener("DOMContentLoaded", function () {
         sermons: [
           {
             id: 1,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 1"
           },
           {
             id: 2,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 2"
           },
           {
             id: 3,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 3"
           },
           {
             id: 4,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 4"
           },
           {
             id: 5,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 5"
           },
           {
             id: 6,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 6"
           },
           {
             id: 7,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 7"
-          },
-          {
-            id: 8,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Sermon Title 8"
-          },
-          {
-            id: 9,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Sermon Title 8"
-          },
+          }
         ]
       }
     });
@@ -59,49 +49,39 @@ document.addEventListener("DOMContentLoaded", function () {
         events: [
           {
             id: 1,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Event Title 1"
           },
           {
             id: 2,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Event Title 2"
           },
           {
             id: 3,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
             title: "Event Title 3"
           },
           {
             id: 4,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 1"
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
+            title: "Event Title 4"
           },
           {
             id: 5,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 2"
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
+            title: "Event Title 5"
           },
           {
             id: 6,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 3"
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
+            title: "Event Title 6"
           },
           {
             id: 7,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 1"
-          },
-          {
-            id: 8,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 2"
-          },
-          {
-            id: 9,
-            imageSrc: "/website_images/pexels-pixabay-the-cross.jpg",
-            title: "Event Title 3"
-          },
+            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
+            title: "Event Title 7"
+          }
           // Add more events as needed
         ]
       }
