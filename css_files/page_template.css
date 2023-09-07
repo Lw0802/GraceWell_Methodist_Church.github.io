@@ -6,5 +6,5 @@
     Make sure to to crop and resize the image appropriately so that the website does'n take long to load 
     The images have to fit the them of the current page you're working on 
     */
-    background-image: url("././website_images/Grace_Well_Church.jpg");
+    background-image: url("../website_images/Grace_Well_Church.jpg");
 }
