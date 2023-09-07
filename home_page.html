@@ -60,25 +60,26 @@
           </div>
         </div>
         <br>
-        <!-- Inside the existing "container" div -->
-        <h2 class="content-header">Recent Sermons</h2>
+        <!-- Recent Church Sermon Videos -->
         <div id="recent-sermons" class="row">
+          <h2 class="content-header">Recent Sermons</h2>
           <div class="col-md-12">
             <div class="scrolling-images">
               <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
-                <img :src="sermon.imageSrc" :alt="sermon.title" class="sermon-image">
-                <p class="sermon-title">{{ sermon.title }}</p>
+                <a href="https://www.youtube.com/@gracewellmethodistchurch1233"><img :src="sermon.imageSrc" :alt="sermon.title" class="sermon-image"></a>
+                <a href="https://www.youtube.com/@gracewellmethodistchurch1233" style="color: black;"><p href="https://www.youtube.com/@gracewellmethodistchurch1233" class="sermon-title">{{ sermon.title }}</p></a>
               </div>
             </div>
           </div>
         </div>
+        <!-- Recently Announced Church Events -->
         <div id="recent-events" class="row">
           <h2 class="content-header">Recent Events</h2>
           <div class="col-md-12">
             <div class="scrolling-images">
               <div class="scrolling-images-inner" v-for="event in events" :key="event.id">
-                <img :src="event.imageSrc" :alt="event.title" class="event-image">
-                <p class="event-title">{{ event.title }}</p>
+                <a href="././events_page.html"><img :src="event.imageSrc" :alt="event.title" class="event-image"></a>
+                <a href="././events_page.html" style="color: black;"><p class="event-title">{{ event.title }}</p></a>
               </div>
             </div>
           </div>
