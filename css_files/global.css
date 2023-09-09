@@ -151,6 +151,8 @@ Make changes to this file when necessary
   .content-paragraph {
     margin-bottom: 20px;
     margin-top: 20px;
+    font-weight: normal;
+    font-size: medium;
   }
   
   .content-buttons {
