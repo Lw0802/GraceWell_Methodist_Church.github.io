@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           {
             id: 5,
-            imageSrc: "../website_images/pexels-pixabay-the-cross.jpg",
+            imageSrc: "././website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 5"
           },
           {
