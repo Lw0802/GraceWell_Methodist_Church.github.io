@@ -173,12 +173,26 @@ const firebaseConfig = {
     var description = document.getElementById('description').value;
 
     console.log(name, email, subject);
+    saveAPTform = ( firstName, lastName, cellphone, telephone, email, subject, description);
+ }
+
+ const saveAPTform = ( firstName, lastName, cellphone, telephone, email, subject, description) => {
+    new aptForm = AptFormDB.push();
+
+    aptForm.set({
+          firstName: firstName,
+          lastName: lastName,
+          cellphone: cellphone,
+          telephone: telephone,
+          email: email,
+          subject: subject,
+          description: description,
+    })
  }
 
  const getElementVal = (id) => {
         return document.getElementById(id).value;
  }
-
 
 
 
