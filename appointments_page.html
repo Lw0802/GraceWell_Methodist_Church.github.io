@@ -10,6 +10,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/appointments_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="././home_page.html" target="_self">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="././about_page.html" target="_self">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="././about_page.html" target="_self">About</a></li>
           <li class="nav-item"><a class="nav-link" href="././contact_page.html" target="_self">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="././donations_page.html" target="_self">Donations</a></li>
           <li class="nav-item"><a class="nav-link" href="././appointments_page.html" target="_self">Appointments</a></li>
@@ -98,8 +99,8 @@
               </div>
               <br>
               <!-- Submit Button -->
-              <button id="appointmentButton" type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <button id='signUpButton' name="signUpButton" class="btn btn-primary" value="Sign Up" > Submit</button>
           </div>
         </div>
       </div>
@@ -143,12 +144,12 @@
   <script src="././js_files/global.js"></script>
 </body>
 
-<script type="module">/*
+<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+  
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -165,11 +166,12 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
+  const database= getDatabase(app);
   const auth = getAuth();
 
-  appointmentButton.addEventListener('click', (e) => {
 
+  signUpButton.addEventListener('click',(e)=>{
+      
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
     var cellphone = document.getElementById('cellphone').value;
@@ -178,15 +180,9 @@
     var subject = document.getElementById('subject').value;
     var description = document.getElementById('description').value;
 
+  alert("Form submitted!!");
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const appointments = userCredential.appointments;
-
-        alert("Approintment registered succesfully!");
-
-        set(ref(database, 'appointments/' + appointments.uid), {
+  set(ref(database, 'Appointments/'), {
           firstName: firstName,
           lastName: lastName,
           cellphone: cellphone,
@@ -195,16 +191,14 @@
           subject: subject,
           description: description,
         })
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+  // ...
+.catch((error) => {
+  const errorCode = error.code;
+  const errorMessage = error.message;
 
-        alert(errorMessage);
-        // ..
-      });
-  });*/
-</script>
-
+  alert(errorMessage);
+  // ..
+});
+  });
+    </script>
 </html>
