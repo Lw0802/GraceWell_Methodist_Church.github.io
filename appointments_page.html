@@ -143,7 +143,46 @@
   <script src="././js_files/global.js"></script>
 </body>
 
-<script type="module">/*
+<script type="module">
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDhys7Y81Z0oyo10M1hIzg8t2wQIxxFMYA",
+    authDomain: "gracewellweb.firebaseapp.com",
+    databaseURL: "https://gracewellweb-default-rtdb.firebaseio.com",
+    projectId: "gracewellweb",
+    storageBucket: "gracewellweb.appspot.com",
+    messagingSenderId: "652542325461",
+    appId: "1:652542325461:web:59f3b4b82c09eedc4a285c"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  var AptFormDB = firebase.database().ref("appointmentForm");
+
+  document.getElementById('appointmentForm').addEventListener("submit", submitForm)
+
+ function submitForm(e){
+  e.preventdefault();
+   
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var cellphone = document.getElementById('cellphone').value;
+    var telephone = document.getElementById('telephone').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var description = document.getElementById('description').value;
+
+    console.log(name, email, subject);
+ }
+
+ const getElementVal = (id) => {
+        return document.getElementById(id).value;
+ }
+
+
+
+
+/*
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
