@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="././home_page.html" target="_self">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="././about_page.html" target="_self">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="././about_page.html" target="_self">About</a></li>
           <li class="nav-item"><a class="nav-link" href="././contact_page.html" target="_self">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="././donations_page.html" target="_self">Donations</a></li>
           <li class="nav-item"><a class="nav-link" href="././appointments_page.html" target="_self">Appointments</a></li>
@@ -183,14 +183,14 @@
   alert("Form submitted!!");
 
   set(ref(database, 'Appointments/'), {
-          firstName: firstName,
+          firstName: firstName,
           lastName: lastName,
           cellphone: cellphone,
           telephone: telephone,
           email: email,
           subject: subject,
           description: description,
-        })
+        })
   // ...
 .catch((error) => {
   const errorCode = error.code;
@@ -201,56 +201,4 @@
 });
   });
     </script>
-
-<!--<script type="module">
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDhys7Y81Z0oyo10M1hIzg8t2wQIxxFMYA",
-    authDomain: "gracewellweb.firebaseapp.com",
-    databaseURL: "https://gracewellweb-default-rtdb.firebaseio.com",
-    projectId: "gracewellweb",
-    storageBucket: "gracewellweb.appspot.com",
-    messagingSenderId: "652542325461",
-    appId: "1:652542325461:web:59f3b4b82c09eedc4a285c"
-  };
-
-  const app = firebase.initializeApp(firebaseConfig);
-
-  var AptFormDB = firebase.database().ref("appointmentForm");
-
-  document.getElementById('appointmentForm').addEventListener("submit", submitForm)
-
- function submitForm(e){
-  e.preventDefault();
-   
-    var firstName = document.getElementById('firstName');
-    var lastName = document.getElementById('lastName');
-    var cellphone = document.getElementById('cellphone');
-    var telephone = document.getElementById('telephone');
-    var email = document.getElementById('email');
-    var subject = document.getElementById('subject');
-    var description = document.getElementById('description');
-
-    saveAPTform(firstName.value, lastName.value, cellphone.value, telephone.value, email.value, subject.value, description.value);
- }
-
- const saveAPTform = ( firstName, lastName, cellphone, telephone, email, subject, description) => {
-    var aptForm = AptFormDB.push();
-
-    aptForm.set({
-          firstName: firstName,
-          lastName: lastName,
-          cellphone: cellphone,
-          telephone: telephone,
-          email: email,
-          subject: subject,
-          description: description,
-    })
- }
-
- const getElementVal = (id) => {
-  return document.getElementById(id).value;
- }
-</script>-->
-
 </html>

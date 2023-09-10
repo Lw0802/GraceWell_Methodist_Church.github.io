@@ -84,11 +84,7 @@
             window.location.href = 'home_page.html';
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-            alert(errorMessage);
-
+            alert("Your email address or password is incorrect");
           });
       });
     });
