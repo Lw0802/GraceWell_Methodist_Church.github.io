@@ -191,7 +191,12 @@
 
     alert("Form submitted!!");
 
-    set(ref(database, 'Appointments/'), {
+      
+      const appointmentsRef = ref(database, 'Appointments');
+      const newAppointmentRef = push(appointmentsRef); // Generate a unique key for the appointment
+
+  // set(ref(database, 'Appointments/') previous
+  set(newAppointmentRef,{
       firstName: firstName,
       lastName: lastName,
       cellphone: cellphone,
