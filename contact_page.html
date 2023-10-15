@@ -10,6 +10,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/contact_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 
 <body>
@@ -63,9 +65,8 @@
         </div>
         <div class="col-md-6 ">
           <h3 class="content-header">Map Location</h3>
-
-          <img src="././website_images/map-location.png" alt="Location Map">
-
+          <!-- <img src="././website_images/map-location.png" alt="Location Map">-->
+          <div id="map"></div>
           <p class="content-paragraph">Cornwall Hill College, South Africa,Nellmapius Dr, Irene, Centurion, 0062</p>
           <a href="https://www.google.com/maps/place/Cornwall+Hill+College/@-25.8727844,28.2307712,17z/data=!3m1!4b1!4m6!3m5!1s0x1e956646d90020b7:0xa50c05903bbfbc78!8m2!3d-25.8727892!4d28.2333461!16zL20vMGI5cnZk?authuser=0&entry=ttu"
             class="btn">View on Map</a>
@@ -104,11 +105,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!--This is where the Google Maps API KEY can go-->
-  <script></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Vue.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
   <script src="././js_files/contact_page.js"></script>
