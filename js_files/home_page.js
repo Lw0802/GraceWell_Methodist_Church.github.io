@@ -6,22 +6,22 @@ document.addEventListener("DOMContentLoaded", function () {
         sermons: [
           {
             id: 1,
-            videoSrc: "https://www.facebook.com/GraceWellMC/videos/1126375311659767/?mibextid=zDhOQc/",
+            videoSrc: "././website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 1"
           },
           {
             id: 2,
-            videoSrc: "https://fb.watch/nIR4RzHB0l/",
+            videoSrc: "././website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 2"
           },
           {
             id: 3,
-            videoSrc: "https://fb.watch/nIR80-qTM9/",
+            videoSrc: "././website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 3"
           },
           {
             id: 4,
-            videoSrc: "https://fb.watch/nIRbL8QjiJ/",
+            videoSrc: "././website_images/pexels-pixabay-the-cross.jpg",
             title: "Sermon Title 4"
           },
           {

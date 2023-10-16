@@ -52,8 +52,8 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#" target="_self">Account Info</a>
       <a href="#" target="_self">Change password</a>
-      <a href="#" target="_self">Languages</a>
       <a href="#" target="_self">Help & FAQs</a>
+      <a href="#" target="_self">Log Out</a>
     </div>
 
     <!-- Page content -->
@@ -80,21 +80,21 @@
         </div>
       </div>
 
-      <!-- Recent Church Sermon Videos -->
+      <!-- Recent Church Sermon Videos 
       <div id="recent-sermons" class="row">
         <div class="col-md-12">
           <h2 class="content-header">Recent Sermons</h2>
           <div class="scrolling-images">
             <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
-                <!--<img :src="sermon.videoSrc":alt="sermon.title" class="sermon-image">-->
-                <!--<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FGraceWellMC%2Fvideos%2F1126375311659767%2F&show_text=false&width=560&t=0" alt="sermon.title" class="sermon-image" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>-->
+                <img :src="sermon.videoSrc":alt="sermon.title" class="sermon-image">
+                <iframe src="sermon.videoSrc" alt="sermon.title" class="sermon-image" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
               <a href="https://www.facebook.com/GraceWellMC/" style="color: black;">
                 <p class="sermon-title">{{ sermon.title }}</p>
               </a>
             </div>
           </div>
-        </div>
-      </div>
+        </div> 
+      </div>-->
 
       <!-- Recently Announced Church Events -->
       <div id="recent-events" class="row">
