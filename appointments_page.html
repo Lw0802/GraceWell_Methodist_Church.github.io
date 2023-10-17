@@ -156,7 +156,7 @@
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+  import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
   import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -164,13 +164,14 @@
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyDhys7Y81Z0oyo10M1hIzg8t2wQIxxFMYA",
-    authDomain: "gracewellweb.firebaseapp.com",
-    databaseURL: "https://gracewellweb-default-rtdb.firebaseio.com",
-    projectId: "gracewellweb",
-    storageBucket: "gracewellweb.appspot.com",
-    messagingSenderId: "652542325461",
-    appId: "1:652542325461:web:59f3b4b82c09eedc4a285c"
+      apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+      authDomain: "gracewelldatabase.firebaseapp.com",
+      databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gracewelldatabase",
+      storageBucket: "gracewelldatabase.appspot.com",
+      messagingSenderId: "373455644093",
+      appId: "1:373455644093:web:fdf02a68760c1d7c95ded4",
+      measurementId: "G-QE913070ZV"
   };
 
   // Initialize Firebase
@@ -191,7 +192,12 @@
 
     alert("Form submitted!!");
 
-    set(ref(database, 'Appointments/'), {
+      
+      const appointmentsRef = ref(database, 'Appointments');
+      const newAppointmentRef = push(appointmentsRef); // Generate a unique key for the appointment
+
+  // set(ref(database, 'Appointments/') previous
+  set(newAppointmentRef,{
       firstName: firstName,
       lastName: lastName,
       cellphone: cellphone,

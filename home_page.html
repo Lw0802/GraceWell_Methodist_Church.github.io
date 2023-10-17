@@ -51,9 +51,9 @@
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#" target="_self">Account Info</a>
-      <a href="#" target="_self">Password</a>
-      <a href="#" target="_self">Languages</a>
+      <a href="#" target="_self">Change password</a>
       <a href="#" target="_self">Help & FAQs</a>
+      <a href="#" target="_self">Log Out</a>
     </div>
 
     <!-- Page content -->
@@ -80,22 +80,21 @@
         </div>
       </div>
 
-      <!-- Recent Church Sermon Videos -->
+      <!-- Recent Church Sermon Videos 
       <div id="recent-sermons" class="row">
         <div class="col-md-12">
           <h2 class="content-header">Recent Sermons</h2>
           <div class="scrolling-images">
             <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
-              <a href="https://www.youtube.com/@gracewellmethodistchurch1233"><img :src="sermon.imageSrc"
-                  :alt="sermon.title" class="sermon-image"></a>
-              <a href="https://www.youtube.com/@gracewellmethodistchurch1233" style="color: black;">
-                <p href="https://www.youtube.com/@gracewellmethodistchurch1233" class="sermon-title">{{ sermon.title }}
-                </p>
+                <img :src="sermon.videoSrc":alt="sermon.title" class="sermon-image">
+                <iframe src="sermon.videoSrc" alt="sermon.title" class="sermon-image" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+              <a href="https://www.facebook.com/GraceWellMC/" style="color: black;">
+                <p class="sermon-title">{{ sermon.title }}</p>
               </a>
             </div>
           </div>
-        </div>
-      </div>
+        </div> 
+      </div>-->
 
       <!-- Recently Announced Church Events -->
       <div id="recent-events" class="row">
@@ -103,7 +102,9 @@
           <h2 class="content-header">Recent Events</h2>
           <div class="scrolling-images">
             <div class="scrolling-images-inner" v-for="event in events" :key="event.id">
-              <a href="././events_page.html"><img :src="event.imageSrc" :alt="event.title" class="event-image"></a>
+              <a href="././events_page.html">
+                <img :src="event.imageSrc" :alt="event.title" class="event-image">
+              </a>
               <a href="././events_page.html" style="color: black;">
                 <p class="event-title">{{ event.title }}</p>
               </a>
