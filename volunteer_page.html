@@ -102,41 +102,41 @@
           <form id="volunteerForm">
             <!-- Name and Surname -->
             <div class="form-group">
-              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
             <!-- Cellphone and Telephone -->
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="tel" class="form-control" id="cellphone" placeholder="Cellphone" required>
+                <input type="tel" class="form-control" id="cellphone" name="cellphone" placeholder="Cellphone" required>
               </div>
               <div class="form-group col-md-6">
-                <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
               </div>
             </div>
             <!-- Email Address -->
             <div class="form-group">
-              <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
             </div>
             <!-- Combo Box (Select Dropdown) for Appointment Type -->
             <div class="form-group">
-              <label for="appointmentType">Volunteer Event</label>
-              <select class="form-control" id="appointmentType" required>
-                <option value="Ushers">Feed the Needy</option>
-                <option value="Church Band">Youth Service</option>
-                <option value="Media Team">Special Preachinf</option>
+              <label for="volunteerFor">Volunteer Event</label>
+              <select class="form-control" id="volunteerFor" name="volunteerFor" required>
+                <option value="Ushers" name="Ushers">Feed the Needy</option>
+                <option value="Church Band" name="Church Band">Youth Service</option>
+                <option value="Media Team" name="Media Team">Special Preachinf</option>
                 <!-- Add more options as needed -->
               </select>
             </div>
             <!-- Email Address and Date Picker-->
             <div class="form-group">
-              <label for="appointmentDate">Date of Birth</label>
-              <input type="date" class="form-control" id="appointmentDate" required>
+              <label for="dateOfBirth">Date of Birth</label>
+              <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
             </div>
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id='signUpButton' name="signUpButton" type="submit" value="Sign Up" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
@@ -177,5 +177,66 @@
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
 </body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+  import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+      apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+      authDomain: "gracewelldatabase.firebaseapp.com",
+      databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gracewelldatabase",
+      storageBucket: "gracewelldatabase.appspot.com",
+      messagingSenderId: "373455644093",
+      appId: "1:373455644093:web:fdf02a68760c1d7c95ded4",
+      measurementId: "G-QE913070ZV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  signUpButton.addEventListener('click', (e) => {
+
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var cellphone = document.getElementById('cellphone').value;
+    var telephone = document.getElementById('telephone').value;
+    var email = document.getElementById('email').value;
+    var volunteerFor = document.getElementById('volunteerFor').value;
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+
+    alert("Form submitted!!");
+
+      const volunteerRef = ref(database, 'Volunteers');
+      const newVolunteerRefRef = push(volunteerRef); 
+
+  set(newVolunteerRefRef,{
+      firstName: firstName,
+      lastName: lastName,
+      cellphone: cellphone,
+      telephone: telephone,
+      email: email,
+      volunteerFor: volunteerFor,
+      dateOfBirth: dateOfBirth,
+    })
+      // ...
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+        // ..
+      });
+  });
+</script>
 
 </html>
