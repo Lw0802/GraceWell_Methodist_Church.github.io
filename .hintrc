@@ -20,7 +20,8 @@
           "iframe[allow]"
         ]
       }
-    ]
+    ],
+    "button-type": "off"
   },
   "browserslist": [
     "defaults",
