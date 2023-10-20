@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Welcome Content</title>
-  <!-- Add your CSS styles here for formatting the page -->
   <style>
     /* Add your custom styles here */
   </style>
 </head>
 <body>
   <div>
-    <!-- Navigation Menu -->
     <nav>
       <ul>
         <li><a href="././cmsAbout.html">About Us</a></li>
@@ -29,6 +27,12 @@
     <button id="save-welcome-text-button">Save Text</button>
   </div>
 
+  <!-- Display Current Text -->
+  <div>
+    <h2>Current Text</h2>
+    <p id="current-text"></p>
+  </div>
+
   <!-- Image Upload Section -->
   <div>
     <h2>Upload Image</h2>
@@ -42,37 +46,49 @@
     <img id="current-image" src="./path-to-your-current-image.jpg" alt="Current Image" style="max-width: 100%;">
   </div>
 
-  <!-- JavaScript Code -->
-  <script>
-    // Function to fetch and display the current text and image
-    function fetchCurrentContent() {
-      // Make API requests to get the current text and image from your server.
-      // Replace the following placeholders with actual data.
-      const currentText = "Replace with actual text";
-      const currentImageURL = "./path-to-your-current-image.jpg";
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 
-      document.getElementById("welcome-content").value = currentText;
-      document.getElementById("current-image").src = currentImageURL;
+  <script>
+    // firebase config
+    const firebaseConfig = {
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: "",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const database = firebase.database();
+
+    function fetchCurrentContent() {
+      const textRef = database.ref("welcome_text");
+
+      textRef.on("value", (snapshot) => {
+        const currentText = snapshot.val();
+        document.getElementById("welcome-content").value = currentText;
+        document.getElementById("current-text").textContent = currentText;
+      });
     }
 
-    // Function to save the edited text
     function saveText() {
       const newText = document.getElementById("welcome-content").value;
-      // Make an API request to save the new text on your server.
-      // Replace this with the actual API call.
+      const textRef = database.ref("welcome_text");
+      textRef.set(newText);
     }
 
-    // Function to handle image upload
     function handleImageUpload() {
       const input = document.getElementById("image-upload");
       const file = input.files[0];
       if (file) {
-        // Process the uploaded image (e.g., upload to the server).
-        // Replace this with actual image handling logic.
+        // image handling logic.
       }
     }
 
-    // Event Listeners
     document.addEventListener("DOMContentLoaded", fetchCurrentContent);
     document.getElementById("save-welcome-text-button").addEventListener("click", saveText);
     document.getElementById("upload-image-button").addEventListener("click", handleImageUpload);
