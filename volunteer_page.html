@@ -102,42 +102,42 @@
           <form id="volunteerForm">
             <!-- Name and Surname -->
             <div class="form-group">
-              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
             <!-- Cellphone and Telephone -->
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="tel" class="form-control" id="cellphone" name="cellphone" placeholder="Cellphone" required>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
-              </div>
+                <div class="form-group col-md-6">
+                    <input type="tel" class="form-control" id="cellphone" name="cellphone" placeholder="Cellphone" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
+                </div>
             </div>
             <!-- Email Address -->
             <div class="form-group">
-              <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
             </div>
             <!-- Combo Box (Select Dropdown) for Appointment Type -->
             <div class="form-group">
-              <label for="volunteerFor">Volunteer Event</label>
-              <select class="form-control" id="volunteerFor" name="volunteerFor" required>
-                <option value="Ushers" name="Ushers">Feed the Needy</option>
-                <option value="Church Band" name="Church Band">Youth Service</option>
-                <option value="Media Team" name="Media Team">Special Preachinf</option>
-                <!-- Add more options as needed -->
-              </select>
+                <label for="volunteerFor">Volunteer Event</label>
+                <select class="form-control" id="volunteerFor" name="volunteerFor" required>
+                    <option value="Ushers">Feed the Needy</option>
+                    <option value="Church Band">Youth Service</option>
+                    <option value="Media Team">Special Preaching</option>
+                    <!-- Add more options as needed -->
+                </select>
             </div>
             <!-- Email Address and Date Picker-->
             <div class="form-group">
-              <label for="dateOfBirth">Date of Birth</label>
-              <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
             </div>
             <!-- Submit Button -->
-            <button id='signUpButton' name="signUpButton" value="Sign Up" class="btn btn-primary">Submit</button>
-          </form>
+            <button id="signUpButton" name="signUpButton" type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </div>
       </div>
     </section>
@@ -167,6 +167,11 @@
       </div>
     </footer>
   </div>
+  <!--Import the functions you need from the SDKs you need-->
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
+
   <!-- Bootstrap JS (Popper.js and jQuery are required for Bootstrap) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
@@ -179,15 +184,7 @@
 </body>
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-  import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
+  // Your Firebase config
   const firebaseConfig = {
       apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
       authDomain: "gracewelldatabase.firebaseapp.com",
@@ -200,41 +197,40 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-  const auth = getAuth();
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.getDatabase(app);
+
+  const signUpButton = document.getElementById("signUpButton");
 
   signUpButton.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent form submission
 
-    var firstName = document.getElementById('firstName').value;
-    var lastName = document.getElementById('lastName').value;
-    var cellphone = document.getElementById('cellphone').value;
-    var telephone = document.getElementById('telephone').value;
-    var email = document.getElementById('email').value;
-    var volunteerFor = document.getElementById('volunteerFor').value;
-    var dateOfBirth = document.getElementById('dateOfBirth').value;
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var cellphone = document.getElementById('cellphone').value;
+      var telephone = document.getElementById('telephone').value;
+      var email = document.getElementById('email').value;
+      var volunteerFor = document.getElementById('volunteerFor').value;
+      var dateOfBirth = document.getElementById('dateOfBirth').value;
 
-    alert("Form submitted!!");
+      const volunteerRef = firebase.ref(database, 'Volunteers');
+      const newVolunteerRef = firebase.push(volunteerRef);
 
-      const volunteerRef = ref(database, 'Volunteers');
-      const newVolunteerRefRef = push(volunteerRef); 
-
-  set(newVolunteerRefRef,{
-      firstName: firstName,
-      lastName: lastName,
-      cellphone: cellphone,
-      telephone: telephone,
-      email: email,
-      volunteerFor: volunteerFor,
-      dateOfBirth: dateOfBirth,
-    })
-      // ...
+      firebase.set(newVolunteerRef, {
+          firstName: firstName,
+          lastName: lastName,
+          cellphone: cellphone,
+          telephone: telephone,
+          email: email,
+          volunteerFor: volunteerFor,
+          dateOfBirth: dateOfBirth,
+      })
+      .then(() => {
+          alert("Form submitted!");
+      })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        alert(errorMessage);
-        // ..
+          const errorMessage = error.message;
+          alert(errorMessage);
       });
   });
 </script>
