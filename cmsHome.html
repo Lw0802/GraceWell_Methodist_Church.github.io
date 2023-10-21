@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Welcome Content</title>
-  <style>
-    /* Add your custom styles here */
-  </style>
 </head>
 <body>
   <div>
@@ -14,6 +11,8 @@
       <ul>
         <li><a href="././cmsAbout.html">About Us</a></li>
         <li><a href="././cmsDonate.html">Donation Details</a></li>
+        <li><a href="././cmsJoinMin.html">About Us</a></li>
+
       </ul>
     </nav>
   </div>
@@ -42,15 +41,27 @@
 
   <!-- Display Current Image -->
   <div>
-    <h2>Current Image</h2>
+    <h2>Welcome tab Current Image</h2>
     <img id="current-image" src="./path-to-your-current-image.jpg" alt="Current Image" style="max-width: 100%;">
+  </div>
+
+  <!-- Image Upload Section for Background Image -->
+  <div>
+    <h2>Change Background Image</h2>
+    <input type="file" id="background-image-upload" accept="image/*">
+    <button id="change-background-image-button">Change Background Image</button>
+  </div>
+
+  <!-- Display Current Background Image -->
+  <div>
+    <h2>Current Background Image</h2>
+    <img id="current-background-image" src="./path-to-your-current-background-image.jpg" alt="Current Background Image" style="max-width: 100%; height: auto;">
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 
   <script>
-    // firebase config
     const firebaseConfig = {
       apiKey: "",
       authDomain: "",
@@ -73,6 +84,11 @@
         document.getElementById("welcome-content").value = currentText;
         document.getElementById("current-text").textContent = currentText;
       });
+
+      // Fetch the current background image URL from your server or database.
+      // Replace the following placeholder with the actual URL.
+      const currentBackgroundImageURL = "./path-to-your-current-background-image.jpg";
+      document.getElementById("current-background-image").src = currentBackgroundImageURL;
     }
 
     function saveText() {
@@ -85,13 +101,24 @@
       const input = document.getElementById("image-upload");
       const file = input.files[0];
       if (file) {
-        // image handling logic.
+        // Process the uploaded image (e.g., upload to the server).
+        // Replace this with actual image handling logic.
+      }
+    }
+
+    function handleBackgroundImageUpload() {
+      const input = document.getElementById("background-image-upload");
+      const file = input.files[0];
+      if (file) {
+        // Process the uploaded background image (e.g., upload to the server).
+        // Replace this with actual image handling logic.
       }
     }
 
     document.addEventListener("DOMContentLoaded", fetchCurrentContent);
     document.getElementById("save-welcome-text-button").addEventListener("click", saveText);
     document.getElementById("upload-image-button").addEventListener("click", handleImageUpload);
+    document.getElementById("change-background-image-button").addEventListener("click", handleBackgroundImageUpload);
   </script>
 </body>
 </html>
