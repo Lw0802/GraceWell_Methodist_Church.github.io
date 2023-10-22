@@ -101,7 +101,7 @@
 
     function saveText() {
       const newText = document.getElementById("welcome-content").value;
-      const textRef = database.ref("welcome_text");
+      const textRef = db.ref("welcome_text");
       textRef.set(newText);
     }
 
