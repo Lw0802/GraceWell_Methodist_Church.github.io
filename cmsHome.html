@@ -85,7 +85,7 @@
     const db = getDatabase(app);
 
     function fetchCurrentContent() {
-      const textRef = database.ref("welcome_text");
+      const textRef = db.ref("welcome_text");
 
       textRef.on("value", (snapshot) => {
         const currentText = snapshot.val();
