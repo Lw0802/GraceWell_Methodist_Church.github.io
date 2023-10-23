@@ -10,6 +10,9 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/events_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
 </head>
 
 <body>
@@ -43,11 +46,11 @@
       </div>
     </div>
 
-    <!-- Page content -->
+    <!-- Page content 
     <section class="content-section">
       <h1 class="content-header">Events</h1>
       <div class="row">
-        <!-- Left side content -->
+
         <div class="col-md-6">
           <h2 class="content-header">Event Name 1#</h2>
           <p class="content-paragraph">Explore our website to discover a wealth of resources, from inspiring sermons and
@@ -58,7 +61,7 @@
           <p class="content-paragraph-2">Venue:</p>
           <p class="content-paragraph">Location</p>
         </div>
-        <!-- Right side image -->
+ 
         <div class="col-md-6">
           <img style="height: 240px; width: 500px;" src="././website_images/pexels-pixabay-the-cross.jpg"
             alt="Grace Well Church" />
@@ -67,7 +70,15 @@
       </div>
       <hr>
       <div class="row">
-        <!-- Left side content -->
+
+        <style>.event-item {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+  }</style>
+ 
         <div class="col-md-6">
           <h2 class="content-header">Event Name 2#</h2>
           <p class="content-paragraph">Explore our website to discover a wealth of resources, from inspiring sermons and
@@ -78,17 +89,23 @@
           <p class="content-paragraph-2">Venue:</p>
           <p class="content-paragraph">Location</p>
         </div>
-        <!-- Right side image -->
+
         <div class="col-md-6">
           <img style="height: 240px; width: 500px;" src="././website_images/pexels-pixabay-the-cross.jpg"
             alt="Grace Well Church" />
             <p class="content-paragraph-2">For more information, please contact:<p class="content-paragraph">+27 00 000 000</p></p>
         </div>
       </div>
-    </section>
+    </section>  -->
 
-    <!-- Page content different for each page, according to the prototype -->
+    <section id="event-display" class="content-section">
+      <h2 class="content-header">Events</h2>
+      <p class="content-paragraph" id="event-list"></p>
+  </section>
+    
 
+
+    
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
@@ -124,6 +141,75 @@
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
   <script src="././js_files/about_page.js"></script>
+  <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+        authDomain: "gracewelldatabase.firebaseapp.com",
+        databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+        storageBucket: "gracewelldatabase.appspot.com"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Display events
+    var eventList = document.getElementById('event-list');
+
+    function displayEvents() {
+        var gracewellEventsRef = firebase.database().ref('GracewellEventsDB');
+        gracewellEventsRef.on('value', function (snapshot) {
+            eventList.innerHTML = '';
+            var counter = 0;
+
+            snapshot.forEach(function (childSnapshot) {
+                var eventData = childSnapshot.val();
+                var eventKey = childSnapshot.key;
+                counter += 1;
+
+                var listItem = document.createElement('ol');
+                listItem.className = 'event-item';
+                listItem.innerHTML = `
+                    <div class="event-details">
+                      <u><strong>Event #${counter}</strong></u><br>
+                      <strong> Name:</strong> ${eventData.eventName}<br>
+                        <strong> Date:</strong> ${eventData.eventDate}<br>
+                        <strong> Time:</strong> ${eventData.eventTime}<br>
+                        <strong> Location:</strong> ${eventData.eventLocation}
+                    </div>
+                    <hr>
+                `;
+
+                // Create a button container
+                var buttonContainer = document.createElement('div');
+                buttonContainer.className = 'button-container';
+
+                listItem.appendChild(buttonContainer);
+                eventList.appendChild(listItem);
+            });
+        });
+    }
+
+    displayEvents();
+
+    // Delete events
+    function deleteEvent(eventKey) {
+        var gracewellEventsRef = firebase.database().ref('GracewellEventsDB');
+        gracewellEventsRef.child(eventKey).remove();
+    }
+
+    // Edit events
+    function editEvent(eventKey, eventData) {
+        // Populate the form fields with the event data for editing
+        document.getElementById('eventName').value = eventData.eventName;
+        document.getElementById('eventDate').value = eventData.eventDate;
+        document.getElementById('eventTime').value = eventData.eventTime;
+        document.getElementById('eventLocation').value = eventData.eventLocation;
+
+        // Remove the event being edited
+        deleteEvent(eventKey);
+
+        // Focus on the event name input for a better user experience
+        document.getElementById('eventName').focus();
+    }
+</script>
 </body>
 
 </html>
