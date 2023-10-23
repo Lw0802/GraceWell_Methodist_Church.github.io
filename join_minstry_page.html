@@ -105,21 +105,13 @@
         <h3 class="content-header">Become a Member</h3>
         <!-- Join Ministry Form -->
         <form id="joinMinistryForm">
-          <!-- Radio Checkboxes for Ministry Type -->
+          <!-- Radio Checkboxes for Ministry Type-->
+          <label>Pick a Minstry</label>
           <div class="form-group">
-            <label for="ministryType">Pick a Minstry</label>
-            <br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="appointmentType" id="ushers" value="Ushers">
-              <label class="form-check-label" for="ushers">Ushers</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="appointmentType" id="churchBand" value="Church Band">
-              <label class="form-check-label" for="churchBand">Church Band</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="appointmentType" id="mediaTeam" value="Media Team">
-              <label class="form-check-label" for="mediaTeam">Media Team</label>
+            <div class="radio-buttons">
+              <label><input type="radio" name="ministry" value="Ushers"> Ushers </label>
+              <label><input type="radio" name="ministry" value="Church Band"> Church Band </label>
+              <label><input type="radio" name="ministry" value="Media Team"> Media Team </label>
             </div>
           </div>
           <!-- Name and Surname -->
@@ -144,12 +136,12 @@
           </div>
           <!-- Email Address and Date Picker-->
           <div class="form-group">
-            <label for="appointmentDate">Date of Birth</label>
-            <input type="date" class="form-control" id="appointmentDate" required>
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
           </div>
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <!-- Submit Button -->
+        <button id="signUpButton" name="signUpButton" type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </section>
@@ -189,5 +181,68 @@
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
 </body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+  import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+    authDomain: "gracewelldatabase.firebaseapp.com",
+    databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "gracewelldatabase",
+    storageBucket: "gracewelldatabase.appspot.com",
+    messagingSenderId: "373455644093",
+    appId: "1:373455644093:web:fdf02a68760c1d7c95ded4",
+    measurementId: "G-QE913070ZV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+
+  signUpButton.addEventListener('click', (e) => {
+
+    var ministry = document.querySelector('input[name="ministry"]:checked').value;
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var cellphone = document.getElementById('cellphone').value;
+    var telephone = document.getElementById('telephone').value;
+    var email = document.getElementById('email').value;
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+
+    alert("Form submitted!!");
+
+    const joinMinstryRef = ref(database, 'minstryJoin');
+    const newjoinMinstryRef = push(joinMinstryRef); // Generate a unique key for the appointment
+
+    // set(ref(database, 'Appointments/') previous
+    set(joinMinstryRef, {
+      ministry: ministry,
+      firstName: firstName,
+      lastName: lastName,
+      cellphone: cellphone,
+      telephone: telephone,
+      email: email,
+      dateOfBirth: dateOfBirth,
+    })
+      // ...
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+        // ..
+      });
+  });
+</script>
 
 </html>

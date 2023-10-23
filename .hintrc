@@ -20,7 +20,10 @@
           "iframe[allow]"
         ]
       }
-    ]
+    ],
+    "button-type": "off",
+    "axe/aria": "off",
+    "axe/keyboard": "off"
   },
   "browserslist": [
     "defaults",

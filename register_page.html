@@ -59,19 +59,16 @@
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
   // Your web app's Firebase configuration
   const firebaseConfig = {
-      apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
-      authDomain: "gracewelldatabase.firebaseapp.com",
-      databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "gracewelldatabase",
-      storageBucket: "gracewelldatabase.appspot.com",
-      messagingSenderId: "373455644093",
-      appId: "1:373455644093:web:fdf02a68760c1d7c95ded4",
-      measurementId: "G-QE913070ZV"
+    apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+    authDomain: "gracewelldatabase.firebaseapp.com",
+    databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "gracewelldatabase",
+    storageBucket: "gracewelldatabase.appspot.com",
+    messagingSenderId: "373455644093",
+    appId: "1:373455644093:web:fdf02a68760c1d7c95ded4",
+    measurementId: "G-QE913070ZV"
   };
 
   // Initialize Firebase
@@ -79,9 +76,7 @@
   const database = getDatabase(app);
   const auth = getAuth();
 
-
   signUpButton.addEventListener('click', (e) => {
-
     var name = document.getElementById('name').value;
     var surname = document.getElementById('surname').value;
     var email = document.getElementById('email').value;
@@ -92,14 +87,12 @@
     var sex = document.querySelector('input[name="sex"]:checked').value;
     var password = document.getElementById('password').value;
 
-
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
+        // Signed in
         const user = userCredential.user;
 
-        alert("Account Succesfully Created!");
-
+        // Save user data to the database
         set(ref(database, 'users/' + user.uid), {
           name: name,
           surname: surname,
@@ -109,14 +102,19 @@
           sex: sex,
           cellphone: cellphone,
           telephone: telephone,
+        }).then(() => {
+          // Data saved successfully, now redirect
+          window.location.href = 'home_page.html';
         })
+          .catch((error) => {
+            alert("Error saving user data: " + error.message);
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
 
-        alert(errorMessage);
-        // ..
+        alert("Error creating account: " + errorMessage);
       });
   });
 </script>
