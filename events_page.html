@@ -13,6 +13,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+    <style>.event-item {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+  }</style>
 </head>
 
 <body>
@@ -90,8 +97,11 @@
       </div>
     </section>  -->
 
-    <div id="status"></div>
-    <ul id="event-list"></ul>
+    <section id="event-display">
+      <h2>Events</h2>
+      <ul id="event-list"></ul>
+  </section>
+    
 
 
     
@@ -139,32 +149,6 @@
     };
     firebase.initializeApp(firebaseConfig);
 
-    // Handle event creation
-    document.getElementById('eventForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var eventName = document.getElementById('eventName').value;
-        var eventDate = document.getElementById('eventDate').value;
-        var eventTime = document.getElementById('eventTime').value;
-        var eventLocation = document.getElementById('eventLocation').value;
-
-        if (eventName && eventDate && eventTime && eventLocation) {
-            var gracewellEventsRef = firebase.database().ref('GracewellEventsDB');
-            var newEventKey = gracewellEventsRef.push().key;
-            gracewellEventsRef.child(newEventKey).set({
-                eventName: eventName,
-                eventDate: eventDate,
-                eventTime: eventTime,
-                eventLocation: eventLocation
-            });
-
-            // Clear form fields
-            document.getElementById('eventName').value = '';
-            document.getElementById('eventDate').value = '';
-            document.getElementById('eventTime').value = '';
-            document.getElementById('eventLocation').value = '';
-        }
-    });
-
     // Display events
     var eventList = document.getElementById('event-list');
 
@@ -191,25 +175,6 @@
                 // Create a button container
                 var buttonContainer = document.createElement('div');
                 buttonContainer.className = 'button-container';
-
-                // Create an edit button
-                var editBtn = document.createElement('button');
-                editBtn.className = 'edit-button';
-                editBtn.textContent = "Edit";
-                editBtn.onclick = function () {
-                    editEvent(eventKey, eventData);
-                };
-
-                // Create a delete button
-                var deleteBtn = document.createElement('button');
-                deleteBtn.className = 'delete-button';
-                deleteBtn.textContent = "Delete";
-                deleteBtn.onclick = function () {
-                    deleteEvent(eventKey);
-                };
-
-                buttonContainer.appendChild(editBtn);
-                buttonContainer.appendChild(deleteBtn);
 
                 listItem.appendChild(buttonContainer);
                 eventList.appendChild(listItem);
