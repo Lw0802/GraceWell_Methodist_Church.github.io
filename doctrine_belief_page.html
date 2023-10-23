@@ -10,6 +10,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/about_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 </head>
 
 <body>
@@ -38,17 +40,21 @@
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="././about_page.html" target="_self">About</a>
+      <a href="././about_page.html" target="_self">History</a>
+      <a href="././history_page.html" target="_self">Mission</a>
+      <a href="././mission_page.html" target="_self">Beliefs</a>
+      <a href="././doctrine_belief_page.html" target="_self">Faith</a>
+      <!--<a href="././about_page.html" target="_self">About</a>
       <a href="././history_page.html" target="_self">History</a>
       <a href="././mission_page.html" target="_self">Our Mission</a>
       <a href="././doctrine_belief_page.html" target="_self">Beliefs</a>
-      <a href="././staff_page.html" target="_self">Our Staff</a>
+      <a href="././staff_page.html" target="_self">Our Staff</a>-->
     </div>
 
     <!-- Header Image with Welcome Message -->
     <div class="header-image">
       <div class="center-panel">
-        <h1>Doctrine Belief</h1>
+        <h1>Faith</h1>
         <!-- Content within the central panel (most likely a bible scripture, according to the prototype) -->
       </div>
     </div>
@@ -58,9 +64,9 @@
     <section class="content-section">
       <span class="spn" onclick="openNav()">&#9776; Menu</span>
       <br><br>
-      <h2 class="content-header">Doctrine Belief</h2>
+      <h2 class="content-header">Faith</h2>
 
-      <h5 class="content-header">Our Statement of Faith</h5>
+      <!--<h5 class="content-header">Our Statement of Faith</h5>
       <p class="content-paragraph">
         At Gracewell Methodist Church, our beliefs are rooted in the timeless teachings of the Christian faith. We hold
         to a
@@ -104,8 +110,11 @@
         individuals can grow in faith, share their journey, and support one another in times of joy and adversity. Our
         belief in the power of Christ's love compels us to reach out to the hurting, the marginalized, and the lost,
         extending His grace to all.
-      </p>
+      </p>-->
     </section>
+    <div id="status"></div>
+        <ul id="dataList"></ul>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -143,6 +152,58 @@
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
   <script src="././js_files/about_page.js"></script>
+  <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+        authDomain: "gracewelldatabase.firebaseapp.com",
+        databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var statusElement = document.getElementById("status");
+    var dataList = document.getElementById("dataList");
+
+    // Try to access the Firebase database and check the connection status
+    try {
+        firebase.database().ref(".info/connected").on("value", function(snapshot) {
+            if (snapshot.val() === true) {
+                statusElement.innerHTML = "";
+            } else {
+                statusElement.innerHTML = "Not connected to Firebase Realtime Database";
+            }
+        });
+    } catch (error) {
+        statusElement.innerHTML = "Error connecting to Firebase: " + error.message;
+    }
+
+    var database = firebase.database();
+    var gracewellMainRef = database.ref("GracewellMain");
+
+    gracewellMainRef.once("value", function(snapshot) {
+dataList.innerHTML = ""; // Clear the existing list
+
+// Convert the data snapshot into an array
+var dataArray = [];
+snapshot.forEach(function(childSnapshot) {
+dataArray.push(childSnapshot.val());
+});
+
+// Start from the 4th entry (index 3) and get the next 4 entries
+var startingIndex = 12;
+var limit = 3;
+var endIndex = startingIndex + limit;
+var dataToDisplay = dataArray.slice(startingIndex, endIndex);
+
+// Display the retrieved data
+dataToDisplay.forEach(function(aboutValue) {
+var paragraph = document.createElement("p");
+paragraph.textContent = aboutValue;
+dataList.appendChild(paragraph);
+});
+});
+</script>
 </body>
 
 </html>

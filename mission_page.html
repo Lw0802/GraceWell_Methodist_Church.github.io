@@ -1,8 +1,4 @@
-<!--
-    This is a template page for most of the web pages, but not all of them (We'll be following the design in figma)
-    Erase all the comments and lines of code that you don't need
-    Make sure to use ChatGPT when coding and make sure to mention to it that you're using Vue.js and boostrap 
--->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +11,9 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/about_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -43,17 +42,21 @@
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="././about_page.html" target="_self">About</a>
+      <a href="././about_page.html" target="_self">History</a>
+      <a href="././history_page.html" target="_self">Mission</a>
+      <a href="././mission_page.html" target="_self">Beliefs</a>
+      <a href="././doctrine_belief_page.html" target="_self">Faith</a>
+      <!--<a href="././about_page.html" target="_self">About</a>
       <a href="././history_page.html" target="_self">History</a>
       <a href="././mission_page.html" target="_self">Our Mission</a>
       <a href="././doctrine_belief_page.html" target="_self">Beliefs</a>
-      <a href="././staff_page.html" target="_self">Our Staff</a>
+      <a href="././staff_page.html" target="_self">Our Staff</a>-->
     </div>
 
     <!-- Header Image -->
     <div class="header-image">
       <div class="center-panel">
-        <h1>Mission</h1>
+        <h1>Belief</h1>
         <p></p>
       </div>
     </div>
@@ -65,8 +68,8 @@
     <section class="content-section">
       <span class="spn" onclick="openNav()">&#9776; Menu</span>
       <br><br>
-      <h2 class="content-header">Mission </h2>
-      <h5 class="content-header">Our Missions Focus</h5>
+      <h2 class="content-header"> Belief </h2>
+      <!--<h5 class="content-header">Our Beliefs</h5>
       <p class="content-paragraph">
         At GraceWell Methodist Church, missions are at the heart of our faith journey. We believe in following
         Christ's call
@@ -100,7 +103,7 @@
         and
         continuing to extend our reach to the far corners of the world.
       </p>
-      <h5 class="content-header">How You Can Get Involved</h5>h5>
+      <h5 class="content-header">How You Can Get Involved</h5>
       <p class="content-paragraph">
         We believe that everyone has a role to play in fulfilling the Great Commission. Whether it's through
         prayer,
@@ -113,8 +116,10 @@
         a powerful
         force
         for change and transformation.
-      </p>
+      </p>-->
     </section>
+    <div id="status"></div>
+        <ul id="dataList"></ul>
 
     <!-- Page content different for each page, according to the prototype -->
 
@@ -153,6 +158,60 @@
   <!-- Custom JavaScript code -->
   <script src="././js_files/global.js"></script>
   <script src="././js_files/about_page.js"></script>
+
+  <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
+        authDomain: "gracewelldatabase.firebaseapp.com",
+        databaseURL: "https://gracewelldatabase-default-rtdb.europe-west1.firebasedatabase.app",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var statusElement = document.getElementById("status");
+    var dataList = document.getElementById("dataList");
+
+    // Try to access the Firebase database and check the connection status
+    try {
+        firebase.database().ref(".info/connected").on("value", function(snapshot) {
+            if (snapshot.val() === true) {
+                statusElement.innerHTML = "";
+            } else {
+                statusElement.innerHTML = "Not connected to Firebase Realtime Database";
+            }
+        });
+    } catch (error) {
+        statusElement.innerHTML = "Error connecting to Firebase: " + error.message;
+    }
+
+    var database = firebase.database();
+    var gracewellMainRef = database.ref("GracewellMain");
+
+    gracewellMainRef.once("value", function(snapshot) {
+dataList.innerHTML = ""; // Clear the existing list
+
+// Convert the data snapshot into an array
+var dataArray = [];
+snapshot.forEach(function(childSnapshot) {
+dataArray.push(childSnapshot.val());
+});
+
+// Start from the 4th entry (index 3) and get the next 4 entries
+var startingIndex = 7;
+var limit = 4;
+var endIndex = startingIndex + limit;
+var dataToDisplay = dataArray.slice(startingIndex, endIndex);
+
+// Display the retrieved data
+dataToDisplay.forEach(function(aboutValue) {
+var paragraph = document.createElement("p");
+paragraph.textContent = aboutValue;
+dataList.appendChild(paragraph);
+});
+});
+</script>
+
 </body>
 
 </html>
