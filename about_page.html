@@ -10,6 +10,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="././css_files/about_page.css">
   <link rel="stylesheet" href="././css_files/global.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 </head>
 
 <body>
@@ -64,7 +66,7 @@
       <span class="spn" onclick="openNav()">&#9776; Menu</span>
       <br><br>
       <h2 class="content-header">About Us</h2>
-      <p class="content-paragraph"> Welcome to Grace Well Methodist Church! We are a community of people who are
+      <!--<p class="content-paragraph"> Welcome to Grace Well Methodist Church! We are a community of people who are
         passionate about following
         Jesus Christ. We believe that everyone is welcome here, regardless of their background or beliefs. We are
         committed to loving God and loving others, and we believe that the best way to do that is to build
@@ -103,7 +105,9 @@
         Describe the programs and services you offer.
         Use personal stories and testimonials to connect with visitors.
         Make sure your writing is clear, concise, and engaging.</p>
-      </p>
+      </p>-->
+      <div id="status"></div>
+        <ul id="dataList"></ul>
     </section>
 
     <!-- Footer -->
@@ -160,7 +164,7 @@
     try {
         firebase.database().ref(".info/connected").on("value", function(snapshot) {
             if (snapshot.val() === true) {
-                statusElement.innerHTML = "You are Connected to Firebase Realtime Database";
+                statusElement.innerHTML = "";
             } else {
                 statusElement.innerHTML = "Not connected to Firebase Realtime Database";
             }
@@ -176,30 +180,12 @@
         dataList.innerHTML = ""; // Clear the existing list
 
         snapshot.forEach(function(childSnapshot) {
-            var aboutKey = childSnapshot.key;
-            var aboutValue = childSnapshot.val();
+          var aboutValue = childSnapshot.val();
 
-            var listItem = document.createElement("li");
+          var paragraph = document.createElement("p");
+          paragraph.textContent = aboutValue;
 
-            // Create an input field and a button for editing
-            var inputContainer = document.createElement("div");
-            inputContainer.className = "input-container";
-            var editInput = document.createElement("input");
-            editInput.type = "text";
-            editInput.value = aboutValue;
-            editInput.className = "auto-width-input";
-            inputContainer.appendChild(editInput);
-
-            var updateButton = document.createElement("button");
-            updateButton.textContent = "Update";
-            updateButton.onclick = function() {
-                // Update the data in Firebase
-                gracewellMainRef.child(aboutKey).set(editInput.value);
-            };
-            inputContainer.appendChild(updateButton);
-
-            listItem.appendChild(inputContainer);
-            dataList.appendChild(listItem);
+         dataList.appendChild(paragraph);
         });
     });
 </script>
