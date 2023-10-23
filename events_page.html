@@ -189,12 +189,6 @@
 
     displayEvents();
 
-    // Delete events
-    function deleteEvent(eventKey) {
-        var gracewellEventsRef = firebase.database().ref('GracewellEventsDB');
-        gracewellEventsRef.child(eventKey).remove();
-    }
-
     // Edit events
     function editEvent(eventKey, eventData) {
         // Populate the form fields with the event data for editing
@@ -202,12 +196,6 @@
         document.getElementById('eventDate').value = eventData.eventDate;
         document.getElementById('eventTime').value = eventData.eventTime;
         document.getElementById('eventLocation').value = eventData.eventLocation;
-
-        // Remove the event being edited
-        deleteEvent(eventKey);
-
-        // Focus on the event name input for a better user experience
-        document.getElementById('eventName').focus();
     }
 </script>
 </body>
