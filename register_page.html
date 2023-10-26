@@ -54,7 +54,7 @@
   </div>
 </body>
 <script type="module">
-  // Import the functions you need from the SDKs you need
+  // Import the Firebase SDKs and other libraries
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
@@ -92,6 +92,19 @@
         // Signed in
         const user = userCredential.user;
 
+        // Set the expiration time for 2 hours
+        const dt = new Date();
+        const expirationTime = dt.getTime() + 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+
+        // Create an object to store the token and its expiration time
+        const tokenData = {
+          token: user.getIdToken(),
+          expirationTime: expirationTime,
+        };
+
+        // Store the token data in localStorage
+        localStorage.setItem('authToken', JSON.stringify(tokenData));
+
         // Save user data to the database
         set(ref(database, 'users/' + user.uid), {
           name: name,
@@ -105,10 +118,9 @@
         }).then(() => {
           // Data saved successfully, now redirect
           window.location.href = 'home_page.html';
-        })
-          .catch((error) => {
-            alert("Error saving user data: " + error.message);
-          });
+        }).catch((error) => {
+          alert("Error saving user data: " + error.message);
+        });
       })
       .catch((error) => {
         const errorCode = error.code;

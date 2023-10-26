@@ -39,15 +39,12 @@
 
 
   <script type="module">
-    // Import the functions you need from the SDKs you need
+    // Import the Firebase SDKs and other libraries
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-    import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+    import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
+    // Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyBW95P-YZ0GWJDdc_VYF8KC5VhDU5y9278",
       authDomain: "gracewelldatabase.firebaseapp.com",
@@ -72,31 +69,42 @@
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
 
-
         if (email === 'admin' && password === 'admin') {
           // Redirect to 'cmsHome.html' if email and password are 'admin'
           window.location.href = 'https://xbcis-group.github.io/GraceWell_Admin_Web_App.github.io/mobilecms/';
         } else {
           signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            const dt = new Date()
-            update(ref(database, 'users/' + user.uid), {
-              last_login: dt,
+            .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              const dt = new Date();
+              update(ref(database, 'users/' + user.uid), {
+                last_login: dt,
+              });
+
+              // Set the expiration time for 2 hours
+              const expirationTime = dt.getTime() + 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+
+              // Create an object to store the token and its expiration time
+              const tokenData = {
+                token: user.getIdToken(),
+                expirationTime: expirationTime,
+              };
+
+              // Store the token data in localStorage
+              localStorage.setItem('authToken', JSON.stringify(tokenData));
+
+              alert('User logged in');
+
+              window.location.href = 'home_page.html';
             })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
 
-            alert('User loged in')
+              alert(errorMessage);
 
-            window.location.href = 'home_page.html';
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-            alert(errorMessage);
-
-          });
+            });
         }
       });
     });
