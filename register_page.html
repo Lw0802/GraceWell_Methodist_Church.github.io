@@ -94,7 +94,9 @@
 
         // Set the expiration time for 2 hours
         const dt = new Date();
-        const expirationTime = dt.getTime() + 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+        //const expirationTime = dt.getTime() + 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+        const expirationTime = dt.getTime() + 60 * 1000; // 1 minute in milliseconds
+
 
         // Create an object to store the token and its expiration time
         const tokenData = {
