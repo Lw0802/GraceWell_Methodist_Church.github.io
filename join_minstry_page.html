@@ -182,6 +182,37 @@
   <script src="././js_files/global.js"></script>
 </body>
 
+<script>
+  // Check if the authentication token exists in local storage
+  const authTokenData = localStorage.getItem('authToken');
+
+  if (authTokenData) {
+    const authToken = JSON.parse(authTokenData);
+    const currentTime = new Date().getTime();
+
+    if (authToken.expirationTime > currentTime) {
+      // Token is not expired, and you can proceed
+      const auth = getAuth();
+      signInWithCustomToken(auth, authToken.token)
+        .then((userCredential) => {
+          // Token is valid
+          // You can use `userCredential.user` to get user information
+        })
+        .catch((error) => {
+          // Token is expired or invalid
+          // Handle the authentication failure, or redirect to the login page
+        });
+    } else {
+      // Token is expired, redirect to the login page
+      window.location.href = 'login_page.html';
+    }
+  } else {
+    // No token, user is not authenticated
+    // Redirect to the login page
+    window.location.href = 'login_page.html';
+  }
+</script>
+
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";

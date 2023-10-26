@@ -54,7 +54,7 @@
       <a href="././edit_profile_page.html" target="_self">Account Info</a>
       <a href="././change_pass.html" target="_self">Change password</a>
       <a href="././FAQs_page.html" target="_self">Help & FAQs</a>
-      <a href="#" target="_self">Log Out</a>
+      <a href="#" onclick="logOut()">Log Out</a>
     </div>
 
     <!-- Page content -->
@@ -80,38 +80,6 @@
             alt="Grace Well Church" />
         </div>
       </div>
-
-      <!-- Recent Church Sermon Videos 
-      <div id="recent-sermons" class="row">
-        <div class="col-md-12">
-          <h2 class="content-header">Recent Sermons</h2>
-          <div class="scrolling-images">
-            <div class="scrolling-images-inner" v-for="sermon in sermons" :key="sermon.id">
-                <img :src="sermon.videoSrc":alt="sermon.title" class="sermon-image">
-                <iframe src="sermon.videoSrc" alt="sermon.title" class="sermon-image" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-              <a href="https://www.facebook.com/GraceWellMC/" style="color: black;">
-                <p class="sermon-title">{{ sermon.title }}</p>
-              </a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <div id="recent-events" class="row">
-        <div class="col-md-12">
-          <h2 class="content-header">Recent Events</h2>
-          <div class="scrolling-images">
-            <div class="scrolling-images-inner" v-for="event in events" :key="event.id">
-              <a href="././events_page.html">
-                <img :src="event.imageSrc" :alt="event.title" class="event-image">
-              </a>
-              <a href="././events_page.html" style="color: black;">
-                <p class="event-title">{{ event.title }}</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>-->
       <hr>
       <div class="row">
         <!-- Left side content -->
@@ -198,5 +166,19 @@
   <script src="././js_files/home_page.js"></script>
   <script src=""></script>
 </body>
+
+<script>
+// Function to log out and remove the authentication token
+function logOut() {
+  // Remove the authentication token from localStorage
+  localStorage.removeItem('authToken');
+
+  // Show an alert message
+  alert('Thank you for using GraceWell!');
+
+  // Redirect the user to 'index.html'
+  window.location.href = '././index.html';
+}
+</script>
 
 </html>
