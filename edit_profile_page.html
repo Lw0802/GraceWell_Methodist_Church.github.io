@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css_files/edit_profile.css">
     <link rel="stylesheet" href="./css_files/global.css">
-    
+
     <style>
         /* CSS for the edit profile page layout */
         .edit-profile-container {
@@ -20,7 +21,7 @@
             justify-content: center;
             height: 100vh;
         }
-        
+
         .profile-details-container {
             background-color: rgba(255, 255, 255, 0.5);
             padding: 60px;
@@ -45,7 +46,7 @@
         input[type="date"],
         input[type="radio"] {
             width: 85%;
-            height : 40px;
+            height: 40px;
             padding: 8px;
             border: 2px solid #0000008d;
             border-radius: 5px;
@@ -57,16 +58,16 @@
             display: inline-block;
             margin-right: 5px;
         }
-        
+
         button {
-                background-color: #002699;
-                color: white;
-                border: none;
-                padding: 10px 10px;
-                margin-left: 0px;
-                border-radius: 50px;
-                cursor: pointer;
-                width : 85%;
+            background-color: #002699;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            margin-left: 0px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 85%;
         }
     </style>
 </head>
@@ -75,29 +76,29 @@
 
     <a href="././index.html"><img :src="./website_images/grawell_log.png" :alt="event.title" class="logo"></a>
 
-     <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row edit-profile-container">
             <div class="col profile-details-container">
                 <!-- Display user profile details here -->
                 <h2>Your Profile Details</h2>
                 <br>
                 <p>Name: John Doe</p>
-                                <br>
+                <br>
 
                 <p>Email: johndoe@example.com</p>
-                                <br>
+                <br>
 
                 <p>Address: 123 Main St</p>
-                                <br>
+                <br>
 
                 <p>Cellphone: 911</p>
-                                <br>
+                <br>
 
                 <p>Telephone: 6911</p>
-                                <br>
+                <br>
 
                 <p>Date of Birth: 12/22/2023</p>
-                                <br>
+                <br>
 
                 <p>Sex: Male</p>
                 <!-- Add more profile details here -->
@@ -110,60 +111,79 @@
                     <!-- Editable fields -->
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    
+
                     <label for="surname">Surname:</label>
                     <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
-                    
+
                     <label for="email">Email:</label>
-                    <input type="email" id= "email" name="email" placeholder="Enter your email" required>
-                    
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
                     <label for="address">Address:</label>
                     <input type="text" id="address" name="address" placeholder="Enter your address" required>
-                    
+
                     <label for="cellphone">Cellphone:</label>
-                    <input type="tel" id="cellphone" name="cellphone" placeholder="Enter your cellphone number" required>
-                    
+                    <input type="tel" id="cellphone" name="cellphone" placeholder="Enter your cellphone number"
+                        required>
+
                     <label for="telephone">Telephone:</label>
                     <input type="tel" id="telephone" name="telephone" placeholder="Enter your telephone number">
-                    
+
                     <label for="dob">Date of Birth:</label>
                     <input type="date" id="dob" name="dob" required>
-                    
+
                     <label>Sex:</label>
                     <div class="radio-buttons">
                         <label><input type="radio" name="sex" value="male"> Male</label>
                         <label><input type="radio" name="sex" value="female"> Female</label>
                         <label><input type="radio" name="sex" value="other"> Other</label>
                     </div>
-                    
+
                     <!-- Add more editable fields here -->
                     <button type="submit">Save Changes</button>
                 </form>
             </div>
         </div>
     </div>
-    
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <p class="footer-label">© GraceWell Methodist Church. All rights reserved.</p>
-          <div class="footer-links">
-            <p class="footer-label">Follow Us:</p>
-            <!-- Facebook icon: https://www.flaticon.com/free-icons/facebook -->
-            <a href="https://www.facebook.com/GraceWellMC/"><img src="./website_images/facebook-logo(edited).png" alt="facebook" class="footer-image"></a>
-            <!-- Instagram icon: https://www.flaticon.com/free-icons/instagram-sketched -->
-            <a href="https://za.linkedin.com/in/gracewell-methodist-church-807389219"><img src="./website_images/instagram-logo(edited).png" alt="instagram" class="footer-image"></a>
-            <!-- LinkedIn icon: https://www.flaticon.com/free-icons/linkedin -->
-            <a href="#"><img src="./website_images/linkedin-square-logo(edited).png" alt="linkedin"
-                class="footer-image"></a>
-            <p class="footer-label" style="margin-left: 30px;">Download Our App:</p>
-            <a href="#"><img src="./website_images/app-store-logo(edited).png" alt="appstore" class="footer-image"></a>
-            <a href="#"><img src="./website_images/google-playstore-logo(edited).png" alt="playstore"
-                class="footer-image"></a>
-          </div>
-        </div>
-      </div>
-    </footer>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-label">© GraceWell Methodist Church. All rights reserved.</p>
+                <div class="footer-links">
+                    <p class="footer-label">Follow Us:</p>
+                    <!-- Facebook icon: https://www.flaticon.com/free-icons/facebook -->
+                    <a href="https://www.facebook.com/GraceWellMC/"><img
+                            src="./website_images/facebook-logo(edited).png" alt="facebook" class="footer-image"></a>
+                    <!-- Instagram icon: https://www.flaticon.com/free-icons/instagram-sketched -->
+                    <a href="https://za.linkedin.com/in/gracewell-methodist-church-807389219"><img
+                            src="./website_images/instagram-logo(edited).png" alt="instagram" class="footer-image"></a>
+                    <!-- LinkedIn icon: https://www.flaticon.com/free-icons/linkedin -->
+                    <a href="#"><img src="./website_images/linkedin-square-logo(edited).png" alt="linkedin"
+                            class="footer-image"></a>
+                    <p class="footer-label" style="margin-left: 30px;">Download Our App:</p>
+                    <a href="#"><img src="./website_images/app-store-logo(edited).png" alt="appstore"
+                            class="footer-image"></a>
+                    <a href="#"><img src="./website_images/google-playstore-logo(edited).png" alt="playstore"
+                            class="footer-image"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="././js_files/global.js"></script>
 </body>
+
+<script>
+    // Call the checkAuthentication function when the page loads
+    window.addEventListener('load', checkAuthentication);
+    // Function to check authentication
+    function checkAuthentication() {
+        var user = firebase.auth().currentUser;
+        if (!user) {
+        } else {
+            // No user is signed in.
+            window.location.href = 'login_page.html';
+        }
+    }
+</script>
+
 </html>
