@@ -241,7 +241,6 @@
 
 
   signUpButton.addEventListener('click', (e) => {
-
     var ministry = document.querySelector('input[name="ministry"]:checked').value;
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
@@ -253,10 +252,9 @@
     alert("Form submitted!!");
 
     const joinMinstryRef = ref(database, 'minstryJoin');
-    const newjoinMinstryRef = push(joinMinstryRef); // Generate a unique key for the appointment
+    const newjoinMinstryRef = push(joinMinstryRef); // Generate a unique key for each entry
 
-    // set(ref(database, 'Appointments/') previous
-    set(joinMinstryRef, {
+    set(newjoinMinstryRef, { // Use the new reference to set data
       ministry: ministry,
       firstName: firstName,
       lastName: lastName,
@@ -265,15 +263,16 @@
       email: email,
       dateOfBirth: dateOfBirth,
     })
-      // ...
-      .catch((error) => {
+    .then(() => {
+        // Data successfully added
+        console.log("Data added successfully.");
+    })
+    .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         alert(errorMessage);
-        // ..
-      });
-  });
+    });
+});
 </script>
 
 </html>
